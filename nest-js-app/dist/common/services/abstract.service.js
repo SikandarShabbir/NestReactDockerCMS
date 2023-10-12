@@ -34,7 +34,7 @@ let AbstractService = class AbstractService {
     async delete(id) {
         return this.repository.delete(id);
     }
-    async paginate(page = 1, take = 10, relations = []) {
+    async paginate(page = 1, take = 5, relations = []) {
         const [data, total] = await this.repository.findAndCount({
             take,
             skip: (page - 1) * take,
