@@ -1,0 +1,36 @@
+#version: '3.9'
+services:
+  backend:
+    build: .
+    ports:
+      - 8000:3000
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+
+
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: nestjs_admin
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: Nemo
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - 33066:3306
+
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      - PMA_ARBITRARY=1
+
+volumes:
+  mysql_data:
+#    external: true

@@ -1,0 +1,7 @@
+.idea/*
+nest-js-app/dist
+nest-js-app/node_modules
+nest-js-app/package-lock.json
+nest-js-app/uploads/*
+react-app/node_modules
+react-app/package-lock.json
