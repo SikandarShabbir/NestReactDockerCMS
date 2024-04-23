@@ -1,2 +1,4 @@
 .idea/*
 nest-js-app/dist/*
+nest-js-app/node_modules/*
+react-app/node_modules/*

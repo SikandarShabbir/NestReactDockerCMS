@@ -14,7 +14,7 @@ export class PermissionGuard implements CanActivate {
         context: ExecutionContext,
     ) {
         const access = this.reflector.get('access', context.getHandler())
-        console.log(access);
+        // console.log(access);
         if (!access) {
             return true;
         }
@@ -24,7 +24,7 @@ export class PermissionGuard implements CanActivate {
             return false;
         }
         const role: Role = await this.roleService.findOneBy({id: user.role.id}, ['permissions']);
-        console.log('Permissions', role.permissions);
+        // console.log('Permissions', role.permissions);
         if (request.method == 'GET') {
             return role.permissions.some(obj => (obj.name === `view_${access}`) || (obj.name === `edit_${access}`));
         }
